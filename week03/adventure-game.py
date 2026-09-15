@@ -1,120 +1,124 @@
-"""Jogo de aventura com uma floresta encantada, uma caverna, uma trilha e uma cabana.
-Adicionei finais diferentes, incluindo vitórias e derrotas, para tornar cada escolha importante e incentivar outras pessoas a jogar novamente."""
+"""
+Adventure game set in an enchanted forest with a cave, a trail, and a cabin.
+I added different endings, including victories and defeats, to make every
+choice important and encourage other people to play the game again.
+"""
 
-def jogo_aventura():
-    print("--- O MISTÉRIO DA FLORESTA ENCANTADA ---")
-    print("Você acorda na entrada de uma floresta misteriosa com apenas uma lanterna.")
-    
-    # NIVEL 1: 3 escolhas possíveis
-    escolha1 = input("Você deseja entrar na CAVERNA, seguir pela TRILHA ou investigar a CABANA? ").strip().upper()
+def adventure_game():
+    print("--- THE MYSTERY OF THE ENCHANTED FOREST ---")
+    print("You wake up at the entrance of a mysterious forest with only a lantern.")
 
-    if escolha1 == "CAVERNA":
-        print("\nVocê entra na caverna escura e ouve um ruído estranho vindo do fundo.")
-        
-        # NIVEL 2 (Caverna): 2 escolhas
-        escolha2 = input("Você decide ACENDER a lanterna para ver melhor ou CORRER de volta? ").strip().upper()
-        
-        if escolha2 == "ACENDER":
-            print("\nA luz revela um dragão adormecido sobre um monte de moedas de ouro!")
-            
-            # NIVEL 3 (Caverna -> Acender): 2 escolhas
-            escolha3 = input("Você quer PEGAR o ouro ou SAIR de mansinho? ").strip().upper()
-            
-            if escolha3 == "PEGAR":
-                print("\n[FIM 1] O dragão acorda com o barulho e o transforma em cinzas! Fim de jogo.")
-            elif escolha3 == "SAIR":
-                print("\n[FIM 2] Você escapa ileso e descobre que a verdadeira riqueza é continuar vivo. Vitória!")
+    # LEVEL 1: 3 possible choices
+    choice1 = input("Do you want to enter the CAVE, follow the TRAIL, or investigate the CABIN? ").strip().upper()
+
+    if choice1 == "CAVE":
+        print("\nYou enter the dark cave and hear a strange noise coming from deep inside.")
+
+        # LEVEL 2 (Cave): 2 choices
+        choice2 = input("Do you decide to TURN ON the lantern to see better or RUN back? ").strip().upper()
+
+        if choice2 == "TURN ON":
+            print("\nThe light reveals a sleeping dragon resting on a pile of gold coins!")
+
+            # LEVEL 3 (Cave -> Turn On): 2 choices
+            choice3 = input("Do you want to TAKE the gold or LEAVE quietly? ").strip().upper()
+
+            if choice3 == "TAKE":
+                print("\n[ENDING 1] The dragon wakes up because of the noise and turns you into ashes! Game over.")
+            elif choice3 == "LEAVE":
+                print("\n[ENDING 2] You escape safely and discover that the real treasure is staying alive. Victory!")
             else:
-                print("\n[Opção Inválida] Você hesitou demais, o dragão acordou e te devorou.")
+                print("\n[Invalid Option] You hesitated for too long, the dragon woke up and ate you.")
 
-        elif escolha2 == "CORRER":
-            print("\nVocê corre desesperadamente para fora e tropeça em um buraco escondido.")
-            
-            # NIVEL 3 (Caverna -> Correr): 2 escolhas
-            escolha3 = input("Você tenta ESCALAR para fora ou GRITAR por socorro? ").strip().upper()
-            
-            if escolha3 == "ESCALAR":
-                print("\n[FIM 3] Com muito esforço você consegue sair do buraco e voltar em segurança para casa. Vitória!")
-            elif escolha3 == "GRITAR":
-                print("\n[FIM 4] Um bando de lobos escuta seus gritos e se aproxima... Fim de jogo.")
+        elif choice2 == "RUN":
+            print("\nYou desperately run outside and trip into a hidden hole.")
+
+            # LEVEL 3 (Cave -> Run): 2 choices
+            choice3 = input("Do you try to CLIMB out or SHOUT for help? ").strip().upper()
+
+            if choice3 == "CLIMB":
+                print("\n[ENDING 3] With great effort, you climb out of the hole and safely return home. Victory!")
+            elif choice3 == "SHOUT":
+                print("\n[ENDING 4] A pack of wolves hears your screams and comes closer... Game over.")
             else:
-                print("\n[Opção Inválida] Você ficou travado de medo e ninguém veio te resgatar.")
-                
+                print("\n[Invalid Option] You froze in fear, and no one came to rescue you.")
+
         else:
-            print("\n[Opção Inválida] Enquanto você pensava no que fazer, a entrada da caverna desmoronou!")
+            print("\n[Invalid Option] While you were thinking about what to do, the cave entrance collapsed!")
 
-    elif escolha1 == "TRILHA":
-        print("\nVocê caminha pela trilha e encontra um rio com uma ponte de madeira bastante antiga.")
-        
-        # NIVEL 2 (Trilha): 2 escolhas
-        escolha2 = input("Você prefere ATRAVESSAR a ponte ou NADAR pelo rio? ").strip().upper()
-        
-        if escolha2 == "ATRAVESSAR":
-            print("\nA ponte rangem a cada passo e você chega ao meio dela.")
-            
-            # NIVEL 3 (Trilha -> Atravessar): 2 escolhas
-            escolha3 = input("Você decide CORRER para terminar rápido ou ANDAR devagar? ").strip().upper()
-            
-            if escolha3 == "CORRER":
-                print("\n[FIM 5] As tábuas quebraram com seu impacto e você caiu no abismo! Fim de jogo.")
-            elif escolha3 == "ANDAR":
-                print("\n[FIM 6] Você cruza a ponte com cuidado e encontra o caminho para a cidade sagrada. Vitória!")
-            else:
-                print("\n[Opção Inválida] Você ficou parado na ponte até que uma ventania a derrubou.")
+    elif choice1 == "TRAIL":
+        print("\nYou walk along the trail and find a river with a very old wooden bridge.")
 
-        elif escolha2 == "NADAR":
-            print("\nVocê pula na água fria. A correnteza está surpreendentemente forte.")
-            
-            # NIVEL 3 (Trilha -> Nadar): 2 escolhas
-            escolha3 = input("Você decide MERGULHAR para fugir da força da água ou BOIAR para economizar energia? ").strip().upper()
-            
-            if escolha3 == "MERGULHAR":
-                print("\n[FIM 7] Você encontra um túnel subaquático que o leva para uma câmara secreta cheia de joias! Vitória!")
-            elif escolha3 == "BOIAR":
-                print("\n[FIM 8] A correnteza te leva para uma cachoeira perigosa. Fim de jogo.")
+        # LEVEL 2 (Trail): 2 choices
+        choice2 = input("Do you prefer to CROSS the bridge or SWIM across the river? ").strip().upper()
+
+        if choice2 == "CROSS":
+            print("\nThe bridge CREAKS with every step, and you reach the middle.")
+
+            # LEVEL 3 (Trail -> Cross): 2 choices
+            choice3 = input("Do you decide to RUN to finish quickly or WALK slowly? ").strip().upper()
+
+            if choice3 == "RUN":
+                print("\n[ENDING 5] The wooden boards break because of your impact, and you fall into the abyss! Game over.")
+            elif choice3 == "WALK":
+                print("\n[ENDING 6] You carefully cross the bridge and find the path to the sacred city. Victory!")
             else:
-                print("\n[Opção Inválida] Você engoliu água por não tomar uma decisão e se afogou.")
-                
+                print("\n[Invalid Option] You stayed still on the bridge until a strong wind knocked it down.")
+
+        elif choice2 == "SWIM":
+            print("\nYou jump into the cold water. The current is surprisingly strong.")
+
+            # LEVEL 3 (Trail -> Swim): 2 choices
+            choice3 = input("Do you decide to DIVE to escape the current or FLOAT to save energy? ").strip().upper()
+
+            if choice3 == "DIVE":
+                print("\n[ENDING 7] You find an underwater tunnel that leads you to a secret chamber full of jewels! Victory!")
+            elif choice3 == "FLOAT":
+                print("\n[ENDING 8] The current carries you toward a dangerous waterfall. Game over.")
+            else:
+                print("\n[Invalid Option] You swallowed water because you did not make a decision and drowned.")
+
         else:
-            print("\n[Opção Inválida] Você demorou a escolher e a noite caiu, deixando você perdido na trilha.")
+            print("\n[Invalid Option] You took too long to choose, and night fell, leaving you lost on the trail.")
 
-    elif escolha1 == "CABANA":
-        print("\nVocê chega a uma velha cabana abandonada com a porta entreaberta.")
-        
-        # NIVEL 2 (Cabana): 2 escolhas
-        escolha2 = input("Você quer ENTRAR na cabana ou ESPIAR pela janela? ").strip().upper()
-        
-        if escolha2 == "ENTRAR":
-            print("\nDentro da cabana há um livro antigo brilhando em cima da mesa.")
-            
-            # NIVEL 3 (Cabana -> Entrar): 2 escolhas
-            escolha3 = input("Você escolhe LER o livro ou QUEIMAR o livro? ").strip().upper()
-            
-            if escolha3 == "LER":
-                print("\n[FIM 9] O livro era um grimório de feitiços que concede poderes mágicos! Vitória!")
-            elif escolha3 == "QUEIMAR":
-                print("\n[FIM 10] Ao queimar o livro, uma maldição se liberta e incendiará toda a floresta! Fim de jogo.")
-            else:
-                print("\n[Opção Inválida] Você hesitou ao tocar no livro e uma armadilha foi disparada.")
+    elif choice1 == "CABIN":
+        print("\nYou arrive at an old abandoned cabin with the door slightly open.")
 
-        elif escolha2 == "ESPIAR":
-            print("\nVocê olha pela janela suja e vê uma figura misteriosa preparando uma poção.")
-            
-            # NIVEL 3 (Cabana -> Espiar): 2 escolhas
-            escolha3 = input("Você decide BATER na porta para se apresentar ou FUGIR em silêncio? ").strip().upper()
-            
-            if escolha3 == "BATER":
-                print("\n[FIM 11] A figura era um bruxo bondoso que te oferece comida e um mapa seguro. Vitória!")
-            elif escolha3 == "FUGIR":
-                print("\n[FIM 12] Ao fugir, você faz barulho nos galhos secos e a figura misteriosa te lança um feitiço do sono. Fim de jogo.")
+        # LEVEL 2 (Cabin): 2 choices
+        choice2 = input("Do you want to ENTER the cabin or PEEK through the window? ").strip().upper()
+
+        if choice2 == "ENTER":
+            print("\nInside the cabin, there is an ancient book glowing on the table.")
+
+            # LEVEL 3 (Cabin -> Enter): 2 choices
+            choice3 = input("Do you choose to READ the book or BURN the book? ").strip().upper()
+
+            if choice3 == "READ":
+                print("\n[ENDING 9] The book is a spellbook that grants you magical powers! Victory!")
+            elif choice3 == "BURN":
+                print("\n[ENDING 10] When you burn the book, a curse is released and sets the entire forest on fire! Game over.")
             else:
-                print("\n[Opção Inválida] A figura viu sua sombra na janela e te capturou.")
-                
+                print("\n[Invalid Option] You hesitated while touching the book, and a trap was activated.")
+
+        elif choice2 == "PEEK":
+            print("\nYou look through the dirty window and see a mysterious figure preparing a potion.")
+
+            # LEVEL 3 (Cabin -> Peek): 2 choices
+            choice3 = input("Do you decide to KNOCK on the door and introduce yourself or ESCAPE silently? ").strip().upper()
+
+            if choice3 == "KNOCK":
+                print("\n[ENDING 11] The figure is a kind wizard who offers you food and a safe map. Victory!")
+            elif choice3 == "ESCAPE":
+                print("\n[ENDING 12] While escaping, you make noise on the dry branches, and the mysterious figure casts a sleeping spell on you. Game over.")
+            else:
+                print("\n[Invalid Option] The figure sees your shadow through the window and captures you.")
+
         else:
-            print("\n[Opção Inválida] Você vacilou na porta e uma matilha de criaturas cercou a cabana.")
+            print("\n[Invalid Option] You hesitated at the door, and a pack of creatures surrounded the cabin.")
 
     else:
-        print("\n[Opção Inválida] Essa não era uma das caminhos disponíveis. Você ficou parado até a escuridão te consumir!")
+        print("\n[Invalid Option] That was not one of the available paths. You stood still until darkness consumed you!")
 
-# Executa o jogo
-jogo_aventura()
+
+# Run the game
+adventure_game()
