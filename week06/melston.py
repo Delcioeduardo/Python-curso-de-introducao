@@ -7,7 +7,7 @@ import csv
 from pathlib import Path
 
 
-DATA_FILE = Path(__file__).with_name("life-expectancy (1).csv")
+DATA_FILE = Path(__file__).with_name("life-expectancy.csv")
 
 
 def main():
@@ -22,19 +22,26 @@ def main():
     try:
         with DATA_FILE.open("r", encoding="utf-8-sig", newline="") as data_file:
             reader = csv.DictReader(data_file)
-            required_columns = {"Entity", "Year", "Life expectancy"}
             if reader.fieldnames is None:
                 raise ValueError("The CSV file is empty or does not have a header.")
 
+            required_columns = {"Entity", "Year"}
             missing_columns = required_columns.difference(reader.fieldnames)
             if missing_columns:
                 missing = ", ".join(sorted(missing_columns))
                 raise ValueError(f"The CSV file is missing required columns: {missing}")
 
+            life_expectancy_key = next(
+                (name for name in reader.fieldnames if name.lower() == "life expectancy" or name.lower() == "life expectancy (years)"),
+                None,
+            )
+            if life_expectancy_key is None:
+                raise ValueError("The CSV file is missing the life expectancy column.")
+
             for row in reader:
                 country = row["Entity"]
                 year = row["Year"]
-                life_expectancy_text = row["Life expectancy"]
+                life_expectancy_text = row[life_expectancy_key]
 
                 if not country or not year or not life_expectancy_text:
                     continue
